@@ -25,7 +25,15 @@ const ImageGallary = () => {
 
     // here deleted all selected images
     const handleDltImages = () => {
-
+        // collect storeData into imageData
+        let imageData = storeData;
+        // upgrade imageData accordign to selected images to delete
+        imageData.data = imageData.data.filter(item => !deletedId.includes(item.id));
+        const afterDeletedImg = {
+          data: [...imageData.data]
+        }
+        setStoreData(afterDeletedImg)
+        setDeletedId([])
     }
     
     return (

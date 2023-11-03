@@ -8,7 +8,6 @@ const DropablePlace = (ImageGallaryprops) => {
 
     // set drag and drop logic of images when get image source index and destination index 
     const handleDragAndDrop = (results) => {
-        console.log("results", results)
 
         const {destination, source, type } = results
     
@@ -17,7 +16,6 @@ const DropablePlace = (ImageGallaryprops) => {
         if(source.index === destination.index && source.droppableId === destination.droppableId) return;
     
         if(type === "group"){
-
           const reorderedStoreData = [...storeData.data]
 
           const sourceIndex = source.index;
@@ -26,12 +24,9 @@ const DropablePlace = (ImageGallaryprops) => {
           
           // remove source index value and collect removed value into removeItem 
           const [removeItem] = reorderedStoreData.splice(sourceIndex, 1);
-          // console.log("removed value", removeItem)
 
           // set remove item value into destination index
           reorderedStoreData.splice(destinationIndex, 0, removeItem);
-          // console.log("reorder data after splice", reorderedStoreData)
-          
           const newObjectOfChildImg = {
             data: reorderedStoreData
           }
