@@ -15,3 +15,23 @@
 .catchFirstImage:nth-child(1) .imgDesign img{
     width: 92%;
 }
+.droppableImages .addImage{
+    width: 200px;
+    height: 200px;
+    border: 1px dashed gray;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 22px;
+}
+.droppableImages .addImage .fileUpload{
+    cursor: pointer;
+    /* display: flex; */
+}
+.droppableImages .addImage .fileUpload input[type="file"]{
+    display: none;
+}
+.droppableImages .addImage .imageIcon{
+    font-size: 25px;
+}

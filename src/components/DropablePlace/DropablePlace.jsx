@@ -1,10 +1,11 @@
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import DraggablePlace from "../DraggablePlace/DraggablePlace";
+import {PiImageFill} from 'react-icons/pi'
+import Swal from 'sweetalert2'
 import "./DropablePlace.css"
 
 const DropablePlace = (ImageGallaryprops) => {
     const {storeData, setStoreData, deletedId, setDeletedId} = ImageGallaryprops
-    console.log("imageGallaryProps", storeData, setStoreData, deletedId, setDeletedId)
 
     // set drag and drop logic of images when get image source index and destination index 
     const handleDragAndDrop = (results) => {
@@ -36,6 +37,35 @@ const DropablePlace = (ImageGallaryprops) => {
         }
       }
 
+      // handle upload img 
+      const handleImg = async (e) => {
+        // console.log("image files", e.target.files[0])
+        let imgData = new FormData();
+        // set my imgbb key to host my uploaded image
+        imgData.set("key", "06a916692ea087d185221539196ef3a5");
+        imgData.append('image', e.target.files[0]);
+        const res = await window.fetch("https://api.imgbb.com/1/upload", {
+            method: "POST",
+            body: imgData,
+        })
+        const data = await res.json();
+        if(data.data.display_url){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Image Uploaded Successfully!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+        // update store data when uploaded new image
+        const generateId = (storeData.data?.length + 1).toString() 
+        const newImage = {id: generateId, img: data.data.display_url}
+        const updatedStoreData = {
+            data: [...storeData.data, newImage]
+        } 
+        setStoreData(updatedStoreData);
+    }
 
     return (
         <DragDropContext onDragEnd={handleDragAndDrop}>
@@ -44,7 +74,15 @@ const DropablePlace = (ImageGallaryprops) => {
                 <div {...provided.droppableProps} ref={provided.innerRef} className="droppableImages">
                 {storeData.data?.map((image, imgIndex) =>  <div key={image.id} className="catchFirstImage"><DraggablePlace image={image} imgIndex={imgIndex} deletedId={deletedId} setDeletedId={setDeletedId}/></div>)}
                     {provided.placeholder}
-                    <div>Add Image</div>
+                    <div className="addImage">
+                        <div>
+                            <label className="fileUpload">
+                                <input  type='file' name='img'  onChange={handleImg} required/>
+                                <span className="imageIcon"><PiImageFill/></span>
+                                <p>Add Images</p>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             ) }
             </Droppable>

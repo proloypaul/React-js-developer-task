@@ -24,4 +24,5 @@
 .gallaryImageContainer .gallaryHeadline .deletedImage{
     color: red;
     cursor: pointer;
+    font-weight: 600;
 }

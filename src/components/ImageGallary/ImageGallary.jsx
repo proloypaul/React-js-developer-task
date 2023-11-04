@@ -41,7 +41,7 @@ const ImageGallary = () => {
             <div className="gallaryHeadline">
                 {deletedId?.length === 0? <p className="selectedImage">Gallary</p>: <div className="selectedAndDeletedImage">
                     <div>
-                        <p className="selectedImage"><input type="checkbox" checked/> {deletedId?.length} Files Seleted</p>
+                        <p className="selectedImage"><input type="checkbox" checked readOnly/> {deletedId?.length} Files Seleted</p>
                     </div>
                     <p className="deletedImage" onClick={handleDltImages}>Delete files</p>
                     </div>}
