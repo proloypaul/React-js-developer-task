@@ -34,4 +34,16 @@
 }
 .droppableImages .addImage .imageIcon{
     font-size: 25px;
+
+    
+}
+.droppableImages .addImage:hover .fileUpload .imageIcon{
+    color: rgb(42, 42, 241)
+}
+.droppableImages .addImage .fileUpload p, .imageIcon{
+    transition: all 0.3s ease-in-out;
+}
+.droppableImages .addImage:hover .fileUpload p{
+    font-weight: 600;
+    color: rgb(42, 42, 241)
 }

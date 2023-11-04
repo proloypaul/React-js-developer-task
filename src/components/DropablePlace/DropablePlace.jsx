@@ -39,10 +39,9 @@ const DropablePlace = (ImageGallaryprops) => {
 
       // handle upload img 
       const handleImg = async (e) => {
-        // console.log("image files", e.target.files[0])
         let imgData = new FormData();
         // set my imgbb key to host my uploaded image
-        imgData.set("key", "06a916692ea087d185221539196ef3a5");
+        imgData.set("key", import.meta.env.VITE_IMABB_KEY);
         imgData.append('image', e.target.files[0]);
         const res = await window.fetch("https://api.imgbb.com/1/upload", {
             method: "POST",

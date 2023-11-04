@@ -28,7 +28,7 @@ const DraggablePlace = (allDragableProps) => {
                     ref={provided.innerRef}
                     >
                     <div className="imgDesign">
-                        <img src={image.img} alt="Empty!" width="200px"/>
+                        <img src={image.img} alt="Empty!"/>
                         <input className='inputCheck' type='checkbox' value={image?.id} onClick={(e) => handleCheckValue(e)}/>
                     </div>
                     </div>
