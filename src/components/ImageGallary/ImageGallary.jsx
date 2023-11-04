@@ -44,9 +44,7 @@ const ImageGallary = () => {
                         <p className="selectedImage"><input type="checkbox" checked readOnly/> {deletedId?.length} Files Seleted</p>
                     </div>
                     <p className="deletedImage" onClick={handleDltImages}>Delete files</p>
-                    </div>}
-                {/* <p className="selectedImage">{deletedId?.length} Files Seleted</p> */}
-                {/* <p className="deletedImage" onClick={handleDltImages}>Delete files</p> */}
+                </div>}
             </div>
             <DropablePlace storeData={storeData} setStoreData={setStoreData} deletedId={deletedId} setDeletedId={setDeletedId}/>
         </div>

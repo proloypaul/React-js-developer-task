@@ -5,8 +5,8 @@ const DraggablePlace = (allDragableProps) => {
 
     const handleCheckValue = (e) => {
         const checkValue = e.target.value
-        const isTrue = e.target.checked
-        if(isTrue){
+        const isChecked = e.target.checked
+        if(isChecked){
           setDeletedId([...deletedId, checkValue])
         }else{
             // remove unchecked image using splice method
@@ -27,16 +27,15 @@ const DraggablePlace = (allDragableProps) => {
                     {...provided.draggableProps}
                     ref={provided.innerRef}
                     >
-                    <div className="imgDesign">
-                        <img src={image.img} alt="Empty!"/>
-                        <input className='inputCheck' type='checkbox' value={image?.id} onClick={(e) => handleCheckValue(e)}/>
-                    </div>
+                        <div className="imgDesign">
+                            <img src={image.img} alt="Empty!"/>
+                            <input className='inputCheck' type='checkbox' value={image?.id} onClick={(e) => handleCheckValue(e)}/>
+                        </div>
                     </div>
 
                 )}
             </Draggable>
-        </div>
-        
+        </div>  
     );
 };
 
