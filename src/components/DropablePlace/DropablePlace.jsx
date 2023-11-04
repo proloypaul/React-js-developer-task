@@ -41,8 +41,8 @@ const DropablePlace = (ImageGallaryprops) => {
         <DragDropContext onDragEnd={handleDragAndDrop}>
             <Droppable droppableId={"HEADER"}  type="group" direction="horizontal">
             {(provided) =>(
-                <div {...provided.droppableProps} ref={provided.innerRef} style={{display: "grid", gridTemplateColumns: "2.4fr 2.4fr 2.4fr 2.4fr 2.4fr", gap:"10px"}}>
-                {storeData.data?.map((image, imgIndex) =>  <div key={image.id}><DraggablePlace image={image} imgIndex={imgIndex} deletedId={deletedId} setDeletedId={setDeletedId}/></div>)}
+                <div {...provided.droppableProps} ref={provided.innerRef} className="droppableImages">
+                {storeData.data?.map((image, imgIndex) =>  <div key={image.id} className="catchFirstImage"><DraggablePlace image={image} imgIndex={imgIndex} deletedId={deletedId} setDeletedId={setDeletedId}/></div>)}
                     {provided.placeholder}
                     <div>Add Image</div>
                 </div>

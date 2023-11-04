@@ -37,10 +37,16 @@ const ImageGallary = () => {
     }
     
     return (
-        <div>
-            <div style={{display: "flex", justifyContent: "space-between", font: "bold"}}>
-                <p>{deletedId?.length} Selected item</p>
-                <p onClick={handleDltImages}>Delete Item</p>
+        <div className="gallaryImageContainer">
+            <div className="gallaryHeadline">
+                {deletedId?.length === 0? <p className="selectedImage">Gallary</p>: <div className="selectedAndDeletedImage">
+                    <div>
+                        <p className="selectedImage"><input type="checkbox" checked/> {deletedId?.length} Files Seleted</p>
+                    </div>
+                    <p className="deletedImage" onClick={handleDltImages}>Delete files</p>
+                    </div>}
+                {/* <p className="selectedImage">{deletedId?.length} Files Seleted</p> */}
+                {/* <p className="deletedImage" onClick={handleDltImages}>Delete files</p> */}
             </div>
             <DropablePlace storeData={storeData} setStoreData={setStoreData} deletedId={deletedId} setDeletedId={setDeletedId}/>
         </div>

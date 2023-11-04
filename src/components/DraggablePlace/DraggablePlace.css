@@ -1,3 +1,32 @@
-/* .draggContainer .conditionalId2:nth-child(1){
-    background-color: red;
-} */
+.draggableContainer .imgDesign img{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.draggableContainer .imgDesign img:hover{
+    opacity: 0.2;
+}
+.draggableContainer .imgDesign{
+    position: relative;
+}
+.gllaryContainer .conditionalD:nth-child(1) .imgDesign img{
+    width: 92%;
+}
+.draggableContainer .imgDesign .inputCheck{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    opacity: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.draggableContainer .imgDesign:hover .inputCheck{
+    opacity: 1;
+}
+
+.draggableContainer .imgDesign .inputCheck:checked{
+    opacity: 1;
+}

@@ -1,0 +1,27 @@
+.gallaryImageContainer{
+    margin: 15px;
+    background-color: #ffffff;
+    border: 0px;
+    border-radius: 10px;
+}
+.gallaryImageContainer .gallaryHeadline{
+    padding: 5px 40px;
+    border-bottom: 1px solid gray;
+}
+.gallaryImageContainer .gallaryHeadline .selectedAndDeletedImage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gallaryImageContainer .gallaryHeadline .selectedImage{
+    font-size: 20px;
+    font-weight: bold;
+}
+.gallaryImageContainer .gallaryHeadline .selectedImage input{
+    width: 20px;
+    height: 20px;
+}
+.gallaryImageContainer .gallaryHeadline .deletedImage{
+    color: red;
+    cursor: pointer;
+}

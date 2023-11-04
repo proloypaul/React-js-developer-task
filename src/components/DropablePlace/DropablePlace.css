@@ -1,0 +1,17 @@
+.droppableImages{
+    display: grid;
+    grid-template-columns: 2.4fr 2.4fr 2.4fr 2.4fr 2.4fr;
+    gap: 10px;
+    text-align: center;
+    padding: 30px;
+}
+
+.droppableImages .catchFirstImage:nth-child(1){
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* set first image width */
+.catchFirstImage:nth-child(1) .imgDesign img{
+    width: 92%;
+}

@@ -17,19 +17,18 @@ const DraggablePlace = (allDragableProps) => {
         }
       }
 
-      
+
     return (
-        <div className="draggContainer">
+        <div className="draggableContainer">
             <Draggable draggableId={image?.id} key={image.id} index={imgIndex}>
                 {(provided) => (
                     <div 
                     {...provided.dragHandleProps}
                     {...provided.draggableProps}
                     ref={provided.innerRef}
-                    className="conditionalId2"
                     >
                     <div className="imgDesign">
-                        <img src={image.img} alt="Empty!" width="200px" style={{border: "1px solid lightgray", borderRadius:"10px"}}/>
+                        <img src={image.img} alt="Empty!" width="200px"/>
                         <input className='inputCheck' type='checkbox' value={image?.id} onClick={(e) => handleCheckValue(e)}/>
                     </div>
                     </div>
